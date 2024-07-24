@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <main class="main">
+    <main class="main mb-5">
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
