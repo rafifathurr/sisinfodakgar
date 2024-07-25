@@ -93,7 +93,7 @@
                         <div class="mb-3">
                             <label class="col-sm-12 col-form-label">Lampiran</label>
                             <div class="col-sm-12 col-form-label">
-                                <iframe class="w-100 mt-3" style="height: 600px;"
+                                <iframe class="w-100 mt-3" style="height: 1040px;"
                                     src="{{ asset($incoming_mail->attachment) }}" width="1000" height="1000"
                                     frameborder="0"></iframe>
                             </div>

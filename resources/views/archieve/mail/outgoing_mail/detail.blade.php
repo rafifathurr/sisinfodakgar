@@ -77,24 +77,6 @@
                             </div>
                         </div>
                     </div> --}}
-                    @if (explode('.', $outgoing_mail->attachment)[count(explode('.', $outgoing_mail->attachment)) - 1] == 'pdf')
-                        <div class="mb-3">
-                            <label class="col-sm-12 col-form-label">Lampiran</label>
-                            <div class="col-sm-12 col-form-label">
-                                <iframe class="w-100 mt-3" style="height: 600px;"
-                                    src="{{ asset($outgoing_mail->attachment) }}" width="1000" height="1000"
-                                    frameborder="0"></iframe>
-                            </div>
-                        </div>
-                    @else
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Lampiran</label>
-                            <div class="col-sm-9 col-form-label">
-                                <a href="{{ asset($outgoing_mail->attachment) }}" class="text-primary" target="_blank"><i
-                                        class="bi bi-download me-1"></i> Lampiran Surat Keluar</a>
-                            </div>
-                        </div>
-                    @endif
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label">Diperbarui Oleh</label>
                         <div class="col-sm-9 col-form-label">
@@ -107,6 +89,23 @@
                             <b>{{ date('d F Y H:i:s', strtotime($outgoing_mail->updated_at)) }}</b>
                         </div>
                     </div>
+                    @if (explode('.', $outgoing_mail->attachment)[count(explode('.', $outgoing_mail->attachment)) - 1] == 'pdf')
+                        <div class="mb-3">
+                            <label class="col-sm-12 col-form-label">Lampiran</label>
+                            <div class="col-sm-12 col-form-label">
+                                <iframe class="w-100 mt-3" style="height: 1040px;"
+                                    src="{{ asset($outgoing_mail->attachment) }}" width="1000" height="1000"
+                                    frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    @else
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Lampiran</label>
+                            <div class="col-sm-9 col-form-label">
+                                <a href="{{ asset($outgoing_mail->attachment) }}" class="text-primary" target="_blank"><i class="bi bi-download me-1"></i> Lampiran Surat Masuk</a>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-footer bg-white">
                     <div class="text-end my-1">
