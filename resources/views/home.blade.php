@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="shadow-lg" data-aos="fade-up" data-aos-delay="100">Selamat Datang
-                            {{ Auth::check() ? ', ' . Auth::user()->name.' !' : '' }}</h2>
+                            {{ Auth::check() ? ', ' . Auth::user()->name . ' !' : '' }}</h2>
                         <h4 class="mt-1 shadow-lg" data-aos="fade-up" data-aos-delay="200">Sistem Informasi Sub Direktorat
                             Penindakan dan Pelanggaran<br>KORLANTAS POLRI</h4>
                         <a class="btn btn-block btn-primary mt-2" href="#" data-aos="fade-up" data-aos-delay="300">Get
@@ -36,7 +36,7 @@
                             data-aos-delay="200">
                     </div>
                     <p>
-                    <div class="col-lg-12 info aos-init aos-animate" style="text-align: justify;">
+                    <div class="col-lg-12 mx-3 info aos-init aos-animate" style="text-align: justify;">
                         <h5 data-aos="fade-up" data-aos-delay="300"><b>Sistem Informasi Sub Direktorat
                                 Penindakan dan Pelanggaran Korlantas Polri </b>Merupakan Sistem dan Aplikasi Arsip dan
                             Dokumen Sub Direktorat Penindakan dan Pelanggaran
@@ -62,8 +62,10 @@
 
                 <div class="col-lg-12 info aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-center">
-                        <img src="{{ asset('img/korlantas-struktur.png') }}" alt="" width="80%"
-                            data-aos="fade-up" data-aos-delay="200">
+                        <a href="{{ asset('img/korlantas-struktur.png') }}">
+                            <img src="{{ asset('img/korlantas-struktur.png') }}" alt="" width="80%"
+                                data-aos="fade-up" data-aos-delay="200">
+                        </a>
                         <p class="mt-3" data-aos="fade-up" data-aos-delay="200"><b>Source : <a target="_blank"
                                     href="https://k3i.korlantas.polri.go.id/profil/struktur_organisasi">k3i.korlantas.polri.go.id</a></b>
                         </p>

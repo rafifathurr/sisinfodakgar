@@ -1,7 +1,8 @@
 <footer id="footer" class="footer p-0">
 
     <div class="copyright text-center mt-4 px-3">
-        <p>© <span>Copyright</span> <strong class="sitename">Sisinfodakgar Korlantas Polri</strong> <span>All Rights Reserved</span></p>
+        <p>© {{ date('Y') }} <span>Copyright</span> <strong class="sitename">Sisinfodakgar Korlantas Polri</strong>
+            <span>All Rights Reserved</span></p>
     </div>
 
 </footer>
