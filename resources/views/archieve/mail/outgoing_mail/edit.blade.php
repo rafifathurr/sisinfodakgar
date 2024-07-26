@@ -9,7 +9,7 @@
                 @method('patch')
                 <div class="card">
                     <div class="card-header p-3 bg-white">
-                        <h4 class="card-title my-auto">Tambah Surat Keluar</h4>
+                        <h4 class="card-title my-auto">Ubah Surat Keluar</h4>
                     </div>
                     <div class="card-body p-3">
                         <input type="hidden" id="level_record"

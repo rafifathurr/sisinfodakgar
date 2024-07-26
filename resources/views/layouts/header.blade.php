@@ -21,38 +21,45 @@
                             <i class="bi bi-chevron-down toggle-dropdown"></i>
                         </a>
                         <ul>
+                            <li><a href="{{ route('archieve.album.index') }}">Album Dokumentasi</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#"><span>Persuratan</span>
                                     <i class="bi bi-chevron-down toggle-dropdown"></i>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ route('archieve.mail.incoming-mail.index') }}">Surat Masuk</a></li>
-                                    <li><a href="{{ route('archieve.mail.outgoing-mail.index') }}">Surat Keluar</a></li>
+                                    <li><a href="{{ route('archieve.mail.incoming-mail.index') }}">Surat Masuk</a>
+                                    </li>
+                                    <li><a href="{{ route('archieve.mail.outgoing-mail.index') }}">Surat Keluar</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="@if (Route::currentRouteName() == 'master.classification.index' ||
-                                Route::currentRouteName() == 'master.type-mail-content.index' ||
-                                Route::currentRouteName() == 'master.institution.index') active @endif"><span>Master</span>
-                            <i class="bi bi-chevron-down toggle-dropdown"></i>
-                        </a>
-                        <ul>
-                            <li class="dropdown">
-                                <a href="#"><span>Master Persuratan</span>
-                                    <i class="bi bi-chevron-down toggle-dropdown"></i>
-                                </a>
-                                <ul>
-                                    <li><a href="{{ route('master.classification.index') }}">Klasifikasi</a></li>
-                                    <li><a href="{{ route('master.type-mail-content.index') }}">Tipe Surat</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{ route('master.institution.index') }}">Instansi Polri</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('user-management.index') }}"
-                            class="@if (Route::currentRouteName() == 'user-management.index') active @endif">Manajemen User</a></li>
+                    @if (Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                        <li class="dropdown">
+                            <a href="#"
+                                class="@if (Route::currentRouteName() == 'master.classification.index' ||
+                                        Route::currentRouteName() == 'master.type-mail-content.index' ||
+                                        Route::currentRouteName() == 'master.institution.index') active @endif"><span>Master</span>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i>
+                            </a>
+                            <ul>
+                                <li class="dropdown">
+                                    <a href="#"><span>Master Persuratan</span>
+                                        <i class="bi bi-chevron-down toggle-dropdown"></i>
+                                    </a>
+                                    <ul>
+                                        <li><a href="{{ route('master.classification.index') }}">Klasifikasi</a></li>
+                                        <li><a href="{{ route('master.type-mail-content.index') }}">Tipe Surat</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ route('master.institution.index') }}">Instansi Polri</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('user-management.index') }}"
+                                class="@if (Route::currentRouteName() == 'user-management.index') active @endif">Manajemen User</a></li>
+                    @endif
                     <li class="dropdown">
                         <a href="#"><span>{{ Auth::user()->name }}</span>
                             <i class="bi bi-chevron-down toggle-dropdown"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Archieve\Album\AlbumController;
 use App\Http\Controllers\Archieve\Mail\IncomingMailController;
 use App\Http\Controllers\Archieve\Mail\OutgoingMailController;
 use App\Http\Controllers\AuthController;
@@ -97,6 +98,14 @@ Route::group(['middleware' => ['role:admin|user']], function () {
      * Archieve Module
      */
     Route::group(['prefix' => 'archieve', 'as' => 'archieve.'], function () {
+        /**
+         * Album Route
+         */
+        Route::group(['controller' => AlbumController::class, 'prefix' => 'album', 'as' => 'album.'], function () {
+            Route::get('datatable', 'dataTable')->name('dataTable');
+        });
+        Route::resource('album', AlbumController::class)->parameters(['album' => 'id']);
+
         /**
          * Mail Route
          */

@@ -8,7 +8,7 @@
                 @method('patch')
                 <div class="card">
                     <div class="card-header p-3 bg-white">
-                        <h4 class="card-title my-auto">Edit Klasifikasi Surat</h4>
+                        <h4 class="card-title my-auto">Ubah Klasifikasi Surat</h4>
                     </div>
                     <div class="card-body p-3">
                         <div class="mb-3">

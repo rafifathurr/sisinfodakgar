@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-primary rounded-5 mx-2">
+                    <button type="submit" class="btn btn-sm btn-primary mx-2">
                         Simpan
                         <i class="bi bi-check"></i>
                     </button>
