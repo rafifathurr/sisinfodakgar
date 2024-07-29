@@ -435,7 +435,7 @@ class IncomingMailController extends Controller
             // Destroy with Softdelete
             $incoming_mail_destroy = IncomingMail::where('id', $id)->update(['deleted_by' => Auth::user()->id, 'deleted_at' => date('Y-m-d H:i:s')]);
 
-            // Validation Destroy Classification
+            // Validation Destroy Incoming Mail
             if ($incoming_mail_destroy) {
                 DB::commit();
                 session()->flash('success', 'Berhasil Hapus Surat Masuk');

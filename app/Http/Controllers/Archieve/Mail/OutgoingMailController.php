@@ -435,7 +435,7 @@ class OutgoingMailController extends Controller
             // Destroy with Softdelete
             $outgoing_mail_destroy = OutgoingMail::where('id', $id)->update(['deleted_by' => Auth::user()->id, 'deleted_at' => date('Y-m-d H:i:s')]);
 
-            // Validation Destroy Classification
+            // Validation Destroy Outgoing Mail
             if ($outgoing_mail_destroy) {
                 DB::commit();
                 session()->flash('success', 'Berhasil Hapus Surat Keluar');

@@ -102,7 +102,11 @@ Route::group(['middleware' => ['role:admin|user']], function () {
          * Album Route
          */
         Route::group(['controller' => AlbumController::class, 'prefix' => 'album', 'as' => 'album.'], function () {
-            Route::get('datatable', 'dataTable')->name('dataTable');
+            Route::get('show-json/{id}', 'showJson')->name('showJson');
+            Route::get('get-album', 'getAlbum')->name('getAlbum');
+            Route::match(['put', 'patch'], 'upload-image/{id}', 'uploadImage')->name('uploadImage');
+            Route::match(['put', 'patch'], 'change-image/{id}', 'changeImage')->name('changeImage');
+            Route::match(['put', 'patch'], 'destroy-image/{id}', 'destroyImage')->name('destroyImage');
         });
         Route::resource('album', AlbumController::class)->parameters(['album' => 'id']);
 
