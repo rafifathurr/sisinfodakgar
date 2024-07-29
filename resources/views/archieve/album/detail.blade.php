@@ -87,6 +87,7 @@
                                                                     <a class="dropdown-item"
                                                                         onclick="openRename({{ $index }})">Ubah
                                                                         Nama</a>
+                                                                    <a class="dropdown-item" href="{{ asset($attachment->attachment) }}" download>Download</a>
                                                                     <a class="dropdown-item" onclick="destroyFile({{ $index }})">Hapus</a>
                                                                 </div>
                                                             </div>

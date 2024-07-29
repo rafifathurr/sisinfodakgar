@@ -7,7 +7,6 @@ use App\Models\Archieve\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class AlbumController extends Controller
@@ -382,6 +381,10 @@ class AlbumController extends Controller
                         return response()->json(['failed' => 'Gagal Hapus File'], 400);
                     }
                 }
+            }
+
+            if (empty($new_attachment_collection)) {
+                $new_attachment_collection = null;
             }
 
             // Update Record for Attachment
