@@ -84,7 +84,7 @@
                             <label for="attachment">Lampiran <span class="text-danger">*</span></label>
                             <input type="file" class="form-control" name="attachment" id="documentInput"
                                 accept=".pdf,.doc,.docx,.txt,.xls,.xlsx" multiple="true" required>
-                            <p class="text-danger py-1">* .pdf .doc .docx .xlsx</p>
+                            <p class="text-danger py-1">* .pdf .docx .xlsx .pptx</p>
                             <iframe id="documentPreview" class="w-100 mt-3" style="height: 600px;"
                                 src="{{ asset($incoming_mail->attachment) }}" width="1000" height="1000"
                                 frameborder="0"></iframe>
