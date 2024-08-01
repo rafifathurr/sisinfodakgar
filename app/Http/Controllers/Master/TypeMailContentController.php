@@ -72,23 +72,40 @@ class TypeMailContentController extends Controller
                 DB::beginTransaction();
 
                 // Query Store TypeMailContent
-                $classification = TypeMailContent::lockforUpdate()->create([
+                $type_mail_content = TypeMailContent::lockforUpdate()->create([
                     'name' => $request->name,
                 ]);
 
-                // Checking Store Data
-                if ($classification) {
-                    DB::commit();
-                    return redirect()
-                        ->route('master.type-mail-content.index')
-                        ->with(['success' => 'Berhasil Menambahkan Jenis Isi Surat']);
+                if (!isset($request->redirect)) {
+                    // Checking Store Data
+                    if ($type_mail_content) {
+                        DB::commit();
+                        return redirect()
+                            ->route('master.type-mail-content.index')
+                            ->with(['success' => 'Berhasil Menambahkan Jenis Isi Surat']);
+                    } else {
+                        // Failed and Rollback
+                        DB::rollBack();
+                        return redirect()
+                            ->back()
+                            ->with(['failed' => 'Gagal Tambah Jenis Isi Surat'])
+                            ->withInput();
+                    }
                 } else {
-                    // Failed and Rollback
-                    DB::rollBack();
-                    return redirect()
-                        ->back()
-                        ->with(['failed' => 'Gagal Tambah Jenis Isi Surat'])
-                        ->withInput();
+                    // Checking Store Data
+                    if ($type_mail_content) {
+                        DB::commit();
+                        return redirect()
+                            ->back()
+                            ->with(['success' => 'Berhasil Menambahkan Jenis Isi Surat']);
+                    } else {
+                        // Failed and Rollback
+                        DB::rollBack();
+                        return redirect()
+                            ->back()
+                            ->with(['failed' => 'Gagal Tambah Jenis Isi Surat'])
+                            ->withInput();
+                    }
                 }
             } else {
                 return redirect()

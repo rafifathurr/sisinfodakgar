@@ -23,6 +23,7 @@
     <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('lib/datatables.net-bs4/dataTables.bootstrap4.css') }}" rel="stylesheet" />
+    <link href="{{ asset('lib/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

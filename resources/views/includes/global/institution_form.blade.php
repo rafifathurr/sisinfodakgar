@@ -8,10 +8,9 @@
                 </option>
             @endforeach
         </select>
-        <span class="input-group-text bg-primary text-white" id="" title="Tambah Instansi" data-bs-toggle="modal"
-            data-bs-target="#addInstitution">
-            <i class="fas fa-plus mr-1"></i> Tambah Instansi
-        </span>
+        <a class="btn btn-primary" title="Tambah Instansi" data-bs-toggle="modal" data-bs-target="#addInstitution">
+            <i class="fas fa-plus me-1"></i> Tambah Instansi
+        </a>
     </div>
 </div>
 <script>

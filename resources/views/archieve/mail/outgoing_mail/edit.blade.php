@@ -22,8 +22,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="name">Judul Surat <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Judul Surat"
-                                value="{{ $outgoing_mail->name }}" required>
+                            <input type="text" class="form-control" id="name" name="name"
+                                placeholder="Judul Surat" value="{{ $outgoing_mail->name }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="date">Tanggal <span class="text-danger">*</span></label>
@@ -44,15 +44,21 @@
                         </div>
                         <div class="mb-3">
                             <label for="type_mail_content">Jenis Isi Surat <span class="text-danger">*</span></label>
-                            <select class="form-control" id="type_mail_content" name="type_mail_content">
-                                <option disabled hidden selected>Pilih Jenis Isi Surat</option>
-                                @foreach ($type_mail_contents as $type_mail_content)
-                                    <option value="{{ $type_mail_content->id }}"
-                                        @if ($outgoing_mail->type_mail_content_id == $type_mail_content->id) selected @endif>
-                                        {{ $type_mail_content->name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <div class="input-group">
+                                <select class="form-control" id="type_mail_content" name="type_mail_content">
+                                    <option disabled hidden selected>Pilih Jenis Isi Surat</option>
+                                    @foreach ($type_mail_contents as $type_mail_content)
+                                        <option value="{{ $type_mail_content->id }}"
+                                            @if (!is_null(old('type_mail_content')) && old('type_mail_content') == $type_mail_content->id) selected @endif>
+                                            {{ $type_mail_content->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <a class="btn btn-primary" title="Tambah Jenis" data-bs-toggle="modal"
+                                    data-bs-target="#addTypeMailContent">
+                                    <i class="fas fa-plus mr-1"></i> Tambah Jenis
+                                </a>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="level">Tingkat Instansi Polri</label>
@@ -66,9 +72,9 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <span class="input-group-text bg-warning" onclick="resetLevel()" title="Reset">
-                                    <i class="fas fa-undo mr-1"></i> Reset
-                                </span>
+                                <a class="btn btn-warning" onclick="resetLevel()" title="Reset">
+                                    <i class="fas fa-undo me-1"></i> Reset
+                                </a>
                             </div>
                             <p class="text-danger py-1">* Diisi Jika Bersumber Dari Instansi Polri</p>
                         </div>
@@ -106,6 +112,7 @@
         </div>
     </div>
     @push('js-bottom')
+        @include('includes.global.type_mail_content_modal')
         @include('includes.global.institution_modal')
         @include('js.archieve.mail.outgoing_mail.script')
         <script>
