@@ -39,7 +39,7 @@ class AlbumController extends Controller
         if (count($album) > 0) {
             return view('archieve.album.partials.list', ['albums' => $album]);
         } else {
-            return view('sales_order.partials.notfound');
+            return view('archieve.album.partials.notfound');
         }
     }
 
