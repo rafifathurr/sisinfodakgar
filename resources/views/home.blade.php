@@ -12,8 +12,6 @@
                             {{ Auth::check() ? ', ' . Auth::user()->name . ' !' : '' }}</h2>
                         <h4 class="mt-1 shadow-lg" data-aos="fade-up" data-aos-delay="200">Sistem Informasi Sub Direktorat
                             Penindakan dan Pelanggaran<br>KORLANTAS POLRI</h4>
-                        <a class="btn btn-block btn-primary mt-2" href="#" data-aos="fade-up" data-aos-delay="300">Get
-                            Started</a>
                     </div>
                 </div>
             </div>
@@ -62,12 +60,12 @@
 
                 <div class="col-lg-12 info aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-center">
-                        <a href="{{ asset('img/korlantas-struktur.png') }}">
-                            <img src="{{ asset('img/korlantas-struktur.png') }}" alt="" width="80%"
+                        <a href="{{ asset('img/korlantas-struktur-all.png') }}">
+                            <img src="{{ asset('img/korlantas-struktur-all.png') }}" alt="" width="80%"
                                 data-aos="fade-up" data-aos-delay="200">
                         </a>
                         <p class="mt-3" data-aos="fade-up" data-aos-delay="200"><b>Source : <a target="_blank"
-                                    href="https://k3i.korlantas.polri.go.id/profil/struktur_organisasi">k3i.korlantas.polri.go.id</a></b>
+                                    href="https://k3i.korlantas.polri.go.id/assets/fe/doc/struktur_organisasi/struktur%20organisasi%20korlantas%20polri.pdf">k3i.korlantas.polri.go.id</a></b>
                         </p>
                     </div>
                 </div>

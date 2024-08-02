@@ -24,8 +24,13 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password" value="{{ old('password') }}" required>
+                            <div class="input-group border border-1 rounded">
+                                <input type="password" class="form-control" id="password" name="password"
+                                    value="{{ old('password') }}" required>
+                                <a class="btn btn-grey" id="togglePassword" onclick="togglePasswordVisibility()">
+                                    <i class="fas fa-eye" id="eye-icon"></i>
+                                </a>
+                            </div>
                         </div>
                         <div class="d-sm-flex justify-content-between align-items-center mt-2 mb-4">
                             <div class="check-box form-check">
@@ -35,7 +40,7 @@
                                     <span class="form-check-sign">Remember Me</span>
                                 </label>
                             </div>
-                            <a title="Forgot Password" class="text-primary" href="{{ route('forgot') }}">
+                            <a title="Forgot Password" class="text-primary text-right" href="{{ route('forgot') }}">
                                 <i>Forgot
                                     password?</i>
                             </a>
