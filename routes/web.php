@@ -107,13 +107,53 @@ Route::group(['middleware' => ['role:admin|user']], function () {
          * Album Route
          */
         Route::group(['controller' => AlbumController::class, 'prefix' => 'album', 'as' => 'album.'], function () {
-            Route::get('show-json/{id}', 'showJson')->name('showJson');
-            Route::get('get-album', 'getAlbum')->name('getAlbum');
             Route::match(['put', 'patch'], 'upload-image/{id}', 'uploadImage')->name('uploadImage');
             Route::match(['put', 'patch'], 'change-image/{id}', 'changeImage')->name('changeImage');
             Route::match(['put', 'patch'], 'destroy-image/{id}', 'destroyImage')->name('destroyImage');
         });
-        Route::resource('album', AlbumController::class)->parameters(['album' => 'id']);
+        Route::resource('album', AlbumController::class, ['except' => ['index', 'show']])->parameters(['album' => 'id']);
+
+        /**
+         * Mail Route
+         */
+        Route::group(['prefix' => 'mail', 'as' => 'mail.'], function () {
+            /**
+             * Route Incoming Mail Module
+             */
+            Route::resource('incoming-mail', IncomingMailController::class, ['except' => ['index', 'show']])->parameters(['incoming-mail' => 'id']);
+
+            /**
+             * Route Outgoing Mail Module
+             */
+            Route::resource('outgoing-mail', OutgoingMailController::class, ['except' => ['index', 'show']])->parameters(['outgoing-mail' => 'id']);
+        });
+    });
+
+    /**
+     * Route Global Institution Module
+     */
+    Route::group(['controller' => Controller::class, 'prefix' => 'institution', 'as' => 'institution.'], function () {
+        Route::get('get-institution/{level}/{global}', 'getInstitution')->name('getInstitution');
+    });
+});
+
+/**
+ * Admin and User Route Access
+ */
+Route::group(['middleware' => ['role:kasubdit|admin|user']], function () {
+
+    /**
+     * Archieve Module
+     */
+    Route::group(['prefix' => 'archieve', 'as' => 'archieve.'], function () {
+        /**
+         * Album Route
+         */
+        Route::group(['controller' => AlbumController::class, 'prefix' => 'album', 'as' => 'album.'], function () {
+            Route::get('show-json/{id}', 'showJson')->name('showJson');
+            Route::get('get-album', 'getAlbum')->name('getAlbum');
+        });
+        Route::resource('album', AlbumController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy']])->parameters(['album' => 'id']);
 
         /**
          * Mail Route
@@ -125,7 +165,7 @@ Route::group(['middleware' => ['role:admin|user']], function () {
             Route::group(['controller' => IncomingMailController::class, 'prefix' => 'incoming-mail', 'as' => 'incoming-mail.'], function () {
                 Route::get('datatable', 'dataTable')->name('dataTable');
             });
-            Route::resource('incoming-mail', IncomingMailController::class)->parameters(['incoming-mail' => 'id']);
+            Route::resource('incoming-mail', IncomingMailController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy']])->parameters(['incoming-mail' => 'id']);
 
             /**
              * Route Outgoing Mail Module
@@ -133,14 +173,7 @@ Route::group(['middleware' => ['role:admin|user']], function () {
             Route::group(['controller' => OutgoingMailController::class, 'prefix' => 'outgoing-mail', 'as' => 'outgoing-mail.'], function () {
                 Route::get('datatable', 'dataTable')->name('dataTable');
             });
-            Route::resource('outgoing-mail', OutgoingMailController::class)->parameters(['outgoing-mail' => 'id']);
+            Route::resource('outgoing-mail', OutgoingMailController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy']])->parameters(['outgoing-mail' => 'id']);
         });
-    });
-
-    /**
-     * Route Global Institution Module
-     */
-    Route::group(['controller' => Controller::class, 'prefix' => 'institution', 'as' => 'institution.'], function () {
-        Route::get('get-institution/{level}/{global}', 'getInstitution')->name('getInstitution');
     });
 });

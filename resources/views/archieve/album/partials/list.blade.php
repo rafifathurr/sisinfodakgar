@@ -24,10 +24,12 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#infoAlbum"
                                         onclick="getRecord({{ $album->id }}, 'info')" href="#">Informasi</a>
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editAlbum"
-                                        onclick="getRecord({{ $album->id }}, 'edit')" href="#">Ubah</a>
-                                    <a class="dropdown-item" onclick="destroyRecord({{ $album->id }})"
-                                        href="#">Hapus</a>
+                                    @if (!Illuminate\Support\Facades\Auth::user()->hasRole('kasubdit'))
+                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editAlbum"
+                                            onclick="getRecord({{ $album->id }}, 'edit')" href="#">Ubah</a>
+                                        <a class="dropdown-item" onclick="destroyRecord({{ $album->id }})"
+                                            href="#">Hapus</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -25,7 +25,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="input-group border border-1 rounded">
-                                <input type="password" class="form-control" id="password" name="password"
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
                                     value="{{ old('password') }}" required>
                                 <a class="btn btn-grey" id="togglePassword" onclick="togglePasswordVisibility()">
                                     <i class="fas fa-eye" id="eye-icon"></i>

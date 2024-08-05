@@ -5,12 +5,14 @@
             <div class="card">
                 <div class="card-header p-3 bg-white d-flex justify-content-between">
                     <h4 class="card-title my-auto">Daftar Album Dokumentasi</h4>
-                    <div class="p-2">
-                        <a data-bs-toggle="modal" data-bs-target="#addAlbum" data class="btn btn-sm btn-primary">
-                            <i class="bi bi-plus me-1"></i>
-                            Tambah Album
-                        </a>
-                    </div>
+                    @if (!Illuminate\Support\Facades\Auth::user()->hasRole('kasubdit'))
+                        <div class="p-2">
+                            <a data-bs-toggle="modal" data-bs-target="#addAlbum" data class="btn btn-sm btn-primary">
+                                <i class="bi bi-plus me-1"></i>
+                                Tambah Album
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body p-3">
                     <div class="row g-4 my-5" id="waiting-container">

@@ -7,6 +7,7 @@ use App\Models\Archieve\IncomingMail;
 use App\Models\Master\Classification;
 use App\Models\Master\Institution;
 use App\Models\Master\TypeMailContent;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -62,8 +63,11 @@ class IncomingMailController extends Controller
             })
             ->addColumn('action', function ($data) {
                 $btn_action = '<a href="' . route('archieve.mail.incoming-mail.show', ['id' => $data->id]) . '" class="btn btn-sm btn-primary ms-2 mb-1" title="Detail"><i class="bi bi-eye"></i></a>';
-                $btn_action .= '<a href="' . route('archieve.mail.incoming-mail.edit', ['id' => $data->id]) . '" class="btn btn-sm btn-warning ms-2 mb-1" title="Ubah"><i class="bi bi-pencil-square"></i></a>';
-                $btn_action .= '<button class="btn btn-sm btn-danger ms-2 mb-1" onclick="destroyRecord(' . $data->id . ')" title="Hapus"><i class="bi bi-trash"></i></button>';
+
+                if (!User::find(Auth::user()->id)->hasRole('kasubdit')) {
+                    $btn_action .= '<a href="' . route('archieve.mail.incoming-mail.edit', ['id' => $data->id]) . '" class="btn btn-sm btn-warning ms-2 mb-1" title="Ubah"><i class="bi bi-pencil-square"></i></a>';
+                    $btn_action .= '<button class="btn btn-sm btn-danger ms-2 mb-1" onclick="destroyRecord(' . $data->id . ')" title="Hapus"><i class="bi bi-trash"></i></button>';
+                }
                 $btn_action .= '<a target="_blank" href="' . asset($data->attachment) . '" class="btn btn-sm btn-info ms-2 mb-1" title="Lampiran Dokumen"><i class="bi bi-paperclip"></i></a>';
                 return $btn_action;
             })

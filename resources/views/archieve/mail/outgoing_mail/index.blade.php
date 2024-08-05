@@ -5,12 +5,14 @@
             <div class="card">
                 <div class="card-header p-3 bg-white d-flex justify-content-between">
                     <h4 class="card-title my-auto">Daftar Surat Keluar</h4>
-                    <div class="p-2">
-                        <a href="{{ route('archieve.mail.outgoing-mail.create') }}" class="btn btn-sm btn-primary">
-                            <i class="bi bi-plus me-1"></i>
-                            Tambah Surat Masuk
-                        </a>
-                    </div>
+                    @if (!Illuminate\Support\Facades\Auth::user()->hasRole('kasubdit'))
+                        <div class="p-2">
+                            <a href="{{ route('archieve.mail.outgoing-mail.create') }}" class="btn btn-sm btn-primary">
+                                <i class="bi bi-plus me-1"></i>
+                                Tambah Surat Masuk
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body p-3">
                     <div class="table-responsive">
