@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="section py-5 px-4 mb-5">
-        <div class="col-md-12 mb-3">
+    <section class="px-4">
+        <div class="col-md-12 mb-5">
             <div class="card">
                 <div class="card-header p-3 bg-white d-flex justify-content-between">
                     <h4 class="card-title my-auto">Daftar Album Dokumentasi</h4>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="modal fade" id="addAlbum" tabindex="-1" style="z-index: 1051 !important;">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

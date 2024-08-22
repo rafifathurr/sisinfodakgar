@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="section py-5 px-4 mb-5">
-        <div class="col-md-12 mb-3">
+    <section class="px-4">
+        <div class="col-md-12 mb-5">
             <div class="card">
                 <div class="card-header p-3 bg-white">
                     <h4 class="card-title my-auto">Detail Surat Keluar</h4>
@@ -102,7 +102,8 @@
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Lampiran</label>
                             <div class="col-sm-9 col-form-label">
-                                <a href="{{ asset($outgoing_mail->attachment) }}" class="text-primary" target="_blank"><i class="bi bi-download me-1"></i> Lampiran Surat Masuk</a>
+                                <a href="{{ asset($outgoing_mail->attachment) }}" class="text-primary" target="_blank"><i
+                                        class="bi bi-download me-1"></i> Lampiran Surat Masuk</a>
                             </div>
                         </div>
                     @endif
@@ -117,5 +118,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

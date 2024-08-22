@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="section py-5 px-4 mb-5">
-        <div class="col-md-12 mb-3">
+    <section class="px-4">
+        <div class="col-md-12 mb-5">
             <div class="card">
                 <div class="card-header p-3 bg-white d-flex justify-content-between">
                     <h4 class="card-title my-auto">Jenis Isi Surat</h4>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     @push('js-bottom')
         @include('js.master.type_mail_content.script')
         <script>

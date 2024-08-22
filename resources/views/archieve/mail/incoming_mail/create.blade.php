@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="section py-5 px-4 mb-5">
-        <div class="col-md-12 mb-3">
+    <section class="px-4">
+        <div class="col-md-12 mb-5">
             <form class="forms-sample" method="post" action="{{ route('archieve.mail.incoming-mail.store') }}"
                 enctype="multipart/form-data">
                 @csrf
@@ -103,7 +103,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </section>
     @push('js-bottom')
         @include('includes.global.type_mail_content_modal')
         @include('includes.global.institution_modal')

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="section py-5 px-4 mb-5">
-        <div class="col-md-12 mb-3">
+    <section class="px-4">
+        <div class="col-md-12 mb-5">
             <form class="forms-sample" method="post"
                 action="{{ route('master.institution.update', ['id' => $institution->id]) }}">
                 @csrf
@@ -44,7 +44,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </section>
     @push('js-bottom')
         @include('js.master.institution.script')
         <script>
