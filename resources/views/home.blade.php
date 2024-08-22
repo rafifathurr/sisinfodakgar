@@ -4,7 +4,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
-            <img src="{{ asset('img/bg-korlantas-4.jpeg') }}" alt="" data-aos="fade-in">
+            <img src="{{ asset('img/bg-korlantas-4.jpeg') }}" alt="" data-aos="fade-in" style="opacity: 1 !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
