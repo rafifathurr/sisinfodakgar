@@ -79,7 +79,7 @@
                             <label for="attachment">Lampiran <span class="text-danger">*</span></label>
                             <input type="file" class="form-control" name="attachment" id="documentInput"
                                 accept=".pdf,.doc,.docx,.txt,.xls,.xlsx" multiple="true" required>
-                            <p class="text-danger py-1">* .pdf .docx .xlsx .pptx</p>
+                            <p class="text-danger py-1">* .pdf .docx .xlsx .pptx (Max 10 MB)</p>
                             <iframe id="documentPreview" class="w-100 mt-3 d-none" style="height: 600px;"></iframe>
                         </div>
                         <div class="mb-3">
@@ -109,18 +109,6 @@
         @include('includes.global.institution_modal')
         @include('js.archieve.mail.incoming_mail.script')
         <script>
-            $('#documentInput').on('change', function(event) {
-                var file = event.target.files[0];
-                var fileURL = URL.createObjectURL(file);
-                if (file.type === "application/pdf") {
-                    var fileURL = URL.createObjectURL(file);
-                    $('#documentPreview').attr('src', fileURL);
-                    $('#documentPreview').removeClass('d-none');
-                } else {
-                    $('#documentPreview').addClass('d-none');
-                    $('#documentPreview').attr('src', '');
-                }
-            });
 
             $('#level').on('change', function() {
                 $('.institution_form').html('');

@@ -136,7 +136,7 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" id="addImage" tabindex="-1" style="z-index: 1051 !important;">
+    <div class="modal fade" id="addImage">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <form method="post" action="{{ route('archieve.album.uploadImage', ['id' => $album->id]) }}"
@@ -151,6 +151,7 @@
                             <label for="date">Upload Foto <span class="text-danger">*</span></label>
                             <input type="file" class="form-control" name="attachment[]" id="documentInput"
                                 accept="image/*" multiple="true" multiple="true" required>
+                            <p class="text-danger py-1">* .png .jpg .jpeg (Max 10 MB)</p>
                         </div>
                     </div>
                     <div class="modal-footer">

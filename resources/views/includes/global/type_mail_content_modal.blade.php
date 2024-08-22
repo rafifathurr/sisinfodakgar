@@ -1,7 +1,7 @@
 <div class="modal fade" id="addTypeMailContent">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form method="post" action="{{ route('master.type-mail-content.store') }}">
+            <form method="post" id="form_modal_type_mail_content">
                 @csrf
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLongTitle">Tambah Jenis Isi Surat</h4>
