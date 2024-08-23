@@ -187,7 +187,7 @@ class AlbumController extends Controller
             if (!is_null($album->attachment)) {
                 $attachment_collection = json_decode($album->attachment);
 
-                foreach ($request->file('attachment') as $index => $attachment) {
+                foreach ($request->file('attachment') as $attachment) {
                     $file_name_only = explode('.' . $attachment->getClientOriginalExtension(), $attachment->getClientOriginalName())[0];
                     $file_name = $attachment->getClientOriginalName();
 
@@ -224,7 +224,7 @@ class AlbumController extends Controller
 
                 $attachment_collection = [];
 
-                foreach ($request->file('attachment') as $index => $attachment) {
+                foreach ($request->file('attachment') as $attachment) {
                     $file_name_only = explode('.' . $attachment->getClientOriginalExtension(), $attachment->getClientOriginalName())[0];
                     $file_name = $attachment->getClientOriginalName();
 

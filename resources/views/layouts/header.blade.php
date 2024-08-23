@@ -1,4 +1,4 @@
-<header id="header" class="header d-flex align-items-center fixed-top px-5">
+<header id="header" class="header d-flex align-items-center fixed-top pe-lg-5">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between mx-lg-5">
 
         <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto me-xl-0">
